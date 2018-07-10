@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href='css/style.css' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,700,800' rel='stylesheet'> 
+    <title>Twitter</title>
+</head>
+<body>
+    <nav>
+        <div class='topbar'>
+            <div><img class='image' src='assets/twitterlogo.ico' width='24px; height:21px'></div>
+        </div>
+    </nav>
+    <section class='tweet-box'>
+        <form onsubmit='return tweetar()'>
+            <input type='text' id='inputTweet' placeholder='O que está acontecendo?'>
+            <p id=counter ></p>
+            <button id='myButton' type='submit' class='tweetar' desabel=''>Tweetar</button>
+        </form>
+    </section>
+    <div id='printedTweet'></div>
+    
+    <script src='js/script.js'></script>
+    <script src='https://momentis.com/downloads/moment.js'></script>
+    <script src='https://momentis.com/downloads/moment-with-locales.js'></script>
+</body>
+</html>
+
+

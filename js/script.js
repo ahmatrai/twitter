@@ -5,7 +5,8 @@
 //  Adicione o texto ao HTML.
 
 document.getElementById("inputTweet").addEventListener("keydown", writing);
-//document.getElementById("inputTweet").addEventListener("keydown", counter);
+document.getElementById("counter").innerHTML = 140;
+inputTweet.addEventListener("input", resize);
 
 function writing() {
     //desabilita botão se texto vazio
@@ -17,16 +18,34 @@ function writing() {
     else {
     document.getElementById("myButton").disabled = false; 
     }
-//    Conte o número de caracteres de forma regressiva.
-  
-
+    var sizecount = 140-size;
+    document.getElementById('counter').innerHTML = sizecount;
+    //    Conte o número de caracteres de forma regressiva.
+    if (sizecount > 20){
+        counter.style.color= 'blue';
+    }
+    if (sizecount < 20 && sizecount >= 10){
+        counter.style.color= 'yellow';
+    }
+    if (sizecount < 10 && sizecount >= 0){
+        counter.style.color= 'orange';
+    }
+    if (sizecount < 0){
+        counter.style.color= 'red';
+    }
 }
 
+function resize() {
+    inputTweet.style.height = "30px";
+    inputTweet.style.height = inputTweet.scrollHeight + "px";
+  }
+
 function tweetar() {
+    var time = document.createElement("p");
     //cria parágrafo para conter tweet
     var node = document.createElement("p");
     //cria texto do parágrafo pegando conteúdo do input
-    var textnode = document.createTextNode(document.getElementById("inputTweet").value); 
+    var textnode = document.createTextNode((document.getElementById("inputTweet").value)+ ' ' +(moment().format('LT'))); 
     //adiciona contepudo do input no parágrafo
     node.appendChild(textnode);
     document.getElementById("printedTweet").insertBefore(node, document.getElementById("printedTweet").childNodes[0]);
@@ -35,15 +54,8 @@ function tweetar() {
 
 
 
-//Versão 0.0.2
-//    Conte o número de caracteres de forma regressiva.
-//Versão 0.0.3
 
 
-//Versão 0.0.3
-//    Se você passar os 120 caracteres, mostre o contador com outra cor.
-//    Se você passar os 130 caracteres, mostre o contador com outra cor.
-//    Se você passar os 140 caracteres, mostre o contador em negativo.
 //Versão 0.0.4
 //    Ao pressionar enter (/n) aumente a área de texto de acordo com o tamanho do texto.
 //Versão 0.0.5 (Extra)

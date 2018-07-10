@@ -15,17 +15,17 @@
         </div>
     </nav>
     <section class='tweet-box'>
-        <form onsubmit='return tweetar()'>
+        <form id='tweet-form'>
             <input type='text' id='inputTweet' placeholder='O que está acontecendo?'>
             <p id=counter ></p>
-            <button id='myButton' type='submit' class='tweetar' desabel=''>Tweetar</button>
+            <button id='myButton' onclick='tweetar()'>Tweetar</button>
         </form>
     </section>
     <div id='printedTweet'></div>
     
     <script src='js/script.js'></script>
-    <script src='https://momentis.com/downloads/moment.js'></script>
-    <script src='https://momentis.com/downloads/moment-with-locales.js'></script>
+   <!-- <script src='https://momentis.com/downloads/moment.js'></script>
+    <script src='https://momentis.com/downloads/moment-with-locales.js'></script> -->
 </body>
 </html>
 

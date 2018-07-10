@@ -4,38 +4,41 @@
 //  No evento, obter o texto.
 //  Adicione o texto ao HTML.
 
-document.getElementById("inputTweet").addEventListener("keydown", buttonOff, false);
-document.getElementById("inputTweet").addEventListener("keydown", counter);
+document.getElementById("inputTweet").addEventListener("keydown", writing);
+//document.getElementById("inputTweet").addEventListener("keydown", counter);
+
+function writing() {
+    //desabilita botão se texto vazio
+    console.log('chamou');
+    var size = document.getElementById("inputTweet").value.length;
+    if (size === 0 || size > 140 || size === "" || document.getElementById("inputTweet").value.match(/^[ \t\n\r\f\v]+$/)) {
+    document.getElementById("myButton").disabled = true;
+} 
+    else {
+    document.getElementById("myButton").disabled = false; 
+    }
+//    Conte o número de caracteres de forma regressiva.
+  
+
+}
 
 function tweetar() {
-    desableButton();
     //cria parágrafo para conter tweet
     var node = document.createElement("p");
     //cria texto do parágrafo pegando conteúdo do input
     var textnode = document.createTextNode(document.getElementById("inputTweet").value); 
     //adiciona contepudo do input no parágrafo
-    if (inputTweet != "") {
-        node.appendChild(textnode);
-        document.getElementById("printedTweet").appendChild(node);
-    }
-    return false;
+    node.appendChild(textnode);
+    document.getElementById("printedTweet").insertBefore(node, document.getElementById("printedTweet").childNodes[0]);
+    event.preventDefault();
 }
 
+
+
 //Versão 0.0.2
-//    Não inserir texto vazio (desativar o botão "twittar").
 //    Conte o número de caracteres de forma regressiva.
 //Versão 0.0.3
-//    Se você passar os 140 caracteres, desative o botão.
-function desableButton() {
-    //desabilita botão se texto vazio
-    if (document.getElementById("inputTweet").value.length == 0 || document.getElementById("inputTweet").value.length > 140) {
-    document.getElementById("myButton").disabled = true;
-} 
-    else {
-    document.getElementById("myButton").disabled = false; //deveria reabilitar o botão, mas não ta indo
-    }
-    return false;
-}
+
 
 //Versão 0.0.3
 //    Se você passar os 120 caracteres, mostre o contador com outra cor.
